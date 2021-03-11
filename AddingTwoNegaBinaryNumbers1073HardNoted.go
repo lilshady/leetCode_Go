@@ -1,7 +1,7 @@
 package main
 
 import "fmt"
-
+//https://leetcode.com/problems/adding-two-negabinary-numbers/discuss/303842/C%2B%2B-O(N)-Time-with-Explanation-(carry-(sum-greatergreater-1))
 func addNegabinary(arr1 []int, arr2 []int) []int {
 	i := len(arr1) - 1
 	j := len(arr2) - 1
@@ -37,28 +37,29 @@ func addNegabinary(arr1 []int, arr2 []int) []int {
 func main() {
 	fmt.Printf("%+v", addNegabinary([]int{0}, []int{1}))
 }
-//public int[] addNegabinary(int[] arr1, int[] arr2) {
-//int i = arr1.length - 1;
-//int  j = arr2.length - 1;
-//int carry = 0;
-//Stack<Integer> stack = new Stack<>();
-//
-//while (i >= 0 || j >= 0 || carry != 0) {
-//if (i >= 0) carry += arr1[i--];
-//if (j >= 0) carry += arr2[j--];
-//stack.push(carry & 1);
-//carry = - (carry >> 1);
-//
+/*
+   The remainder operator can be used with negative integers. The rule is:
+
+   Perform the operation as if both operands were positive.
+   If the left operand is negative, then make the result negative.
+   If the left operand is positive, then make the result positive.
+   Ignore the sign of the right operand in all cases.
+   For example:
+
+   17 %  3 == 2     -17 %  3 == -2
+   17 % -3 == 2     -17 % -3 == -2
+*/
+//private String baseNegative(int n, int base) {
+//StringBuilder sb = new StringBuilder();
+//while (n != 0) {
+//int remainder = n % base;
+//n = n / base;
+////This is the only difference compared to regular base conversion
+//if (remainder < 0) {
+//remainder += -base;
+//n += 1;
 //}
-//while (!stack.isEmpty() && stack.peek() == 0) {
-//stack.pop();
-//
+//sb.append(remainder);
 //}
-//int[] res = new int[stack.size()];
-//int index = 0;
-//if (stack.isEmpty()) return new int[]{0};
-//while (!stack.isEmpty()) {
-//res[index++] = stack.pop();
-//}
-//return res;
+//return sb.length() == 0 ? "0" : sb.reverse().toString();
 //}
